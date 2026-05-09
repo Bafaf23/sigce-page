@@ -65,7 +65,7 @@ export default function Fotter() {
       </div>
       <div className="flex flex-col items-end">
         <p className="z-10 text-2xl text-gray-300/50 italic">
-          "Un ser sin estudios, es un ser incompleto."
+          "Un ser sin estudios es un ser incompleto."
         </p>
         <Label
           label={"Simon Bolivar"}
