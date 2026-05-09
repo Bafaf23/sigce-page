@@ -48,7 +48,7 @@ export default function Hero() {
                 "bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2 group shadow-lg shadow-cyan-500/20"
               }
               onClick={() => {
-                window.location.href = "/enrollment";
+                window.location.href = "https://wa.link/urfdhq";
               }}
               children={"Se parte de la innovación"}
               icon={faUserPlus}
