@@ -41,6 +41,9 @@ export default function Header() {
             }
             children={"ir al sistema"}
             icon={faRightToBracket}
+            onClick={() => {
+              window.location.href = "/login";
+            }}
           ></Button>
         </div>
       </div>
