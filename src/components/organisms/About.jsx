@@ -26,12 +26,12 @@ export default function About() {
   ];
 
   return (
-    <section id="nosotros" className="border-t border-gray-200 px-6 py-24">
-      <div className="mx-auto max-w-7xl">
+    <section id="nosotros" className="px-4 py-24">
+      <div className="mx-auto max-w-9xl">
         <div className="flex flex-col items-center gap-16 lg:flex-row">
           {/* Lado Izquierdo: Imagen o Composición Visual */}
           <div className="relative flex-1">
-            <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-orange-500/20 shadow-2xl">
+            <div className="relative z-10 overflow-hidden rounded-2xl border-2 border-orange-500/20 shadow-2xl w-full">
               <div className="flex flex-col gap-4 bg-white/20 p-8">
                 <div className="flex items-center gap-3">
                   <div className="h-3 w-3 rounded-full bg-rose-500"></div>

@@ -5,6 +5,9 @@ import {
   faBuildingColumns,
   faMicrochip,
 } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+
+const WA_LINK = "https://wa.link/urfdhq";
 
 export default function Planes() {
   const planes = [
@@ -20,6 +23,8 @@ export default function Planes() {
       ],
       color: "border-gray-300 shadow",
       boton: "Comenzar ahora",
+      ctaHref: "/login",
+      ctaExternal: false,
     },
     {
       nombre: "Institucional",
@@ -34,6 +39,8 @@ export default function Planes() {
       color: "border-cyan-500 shadow-lg shadow-cyan-500/10",
       destacado: true,
       boton: "Contactar Ventas",
+      ctaHref: WA_LINK,
+      ctaExternal: true,
     },
     {
       nombre: "Gubernamental",
@@ -47,6 +54,8 @@ export default function Planes() {
       ],
       color: "border-gray-300 shadow",
       boton: "Solicitar Demo",
+      ctaHref: WA_LINK,
+      ctaExternal: true,
     },
   ];
 
@@ -66,9 +75,9 @@ export default function Planes() {
       </div>
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-8 md:grid-cols-3">
-        {planes.map((plan, index) => (
+        {planes.map((plan) => (
           <div
-            key={index}
+            key={plan.nombre}
             className={`relative rounded-3xl border-2 bg-white p-8 transition-transform hover:-translate-y-2 ${plan.color}`}
           >
             {plan.destacado && (
@@ -88,9 +97,9 @@ export default function Planes() {
             </div>
 
             <ul className="mb-8 space-y-4">
-              {plan.features.map((item, i) => (
+              {plan.features.map((item) => (
                 <li
-                  key={i}
+                  key={item}
                   className="flex items-center gap-3 text-sm text-gray-400"
                 >
                   <Icon icon={faCheck} className="text-xs text-cyan-500" />
@@ -99,15 +108,19 @@ export default function Planes() {
               ))}
             </ul>
 
-            <button
-              className={`w-full rounded-xl py-3 font-bold transition-all ${
+            <Link
+              href={plan.ctaHref}
+              {...(plan.ctaExternal
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className={`flex w-full justify-center rounded-xl py-3 font-bold text-white transition-all ${
                 plan.destacado
-                  ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/20 hover:bg-cyan-500"
-                  : "bg-cyan-600 text-gray-200 hover:bg-cyan-600"
+                  ? "bg-cyan-600 shadow-lg shadow-cyan-500/20 hover:bg-cyan-500"
+                  : "bg-cyan-600 hover:bg-cyan-500"
               }`}
             >
               {plan.boton}
-            </button>
+            </Link>
           </div>
         ))}
       </div>
