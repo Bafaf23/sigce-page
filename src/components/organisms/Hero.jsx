@@ -1,6 +1,5 @@
-"use client";
-import Button from "@/components/atoms/Button";
 import CardState from "@/components/atoms/CardState";
+import Icon from "@/components/atoms/Icon";
 import Label from "@/components/atoms/Label";
 import {
   faUserPlus,
@@ -8,25 +7,26 @@ import {
   faCoins,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
+
+const WA_LINK = "https://wa.link/urfdhq";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex-1 scroll-mt-30 overflow-hidden px-6 py-20"
+      className="relative scroll-mt-24 overflow-hidden px-4 py-20 "
     >
-      {/* Decoración de fondo (Átomo de diseño) */}
       <div className="absolute top-0 right-0 h-96 w-96 translate-x-1/4 -translate-y-1/2 rounded-full bg-cyan-500/10 blur-3xl"></div>
-      <div className="max-w-9xl mx-10 flex flex-col items-center gap-12 md:flex-row">
-        {/* Lado Izquierdo: Textos (Molécula) */}
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-4 md:flex-row">
         <div className="z-10 flex-1 text-center md:text-left">
-          <div className="flex items-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-2 md:justify-start">
             <Label
               label={"Gestión Inteligente"}
               className="bg-cyan-500/10 text-cyan-400"
             ></Label>
             <Label
-              label={"Un eco sistema completo para tu institución"}
+              label={"Un ecosistema completo para tu institución"}
               className="bg-amber-500/10 text-amber-400"
             ></Label>
           </div>
@@ -41,42 +41,35 @@ export default function Hero() {
             centro de estudio con una plataforma rápida y segura.
           </p>
 
-          {/* Acciones (Molécula de Botones) */}
           <div className="flex flex-wrap justify-center gap-4 md:justify-start">
-            <Button
-              classNameBtn={
-                "bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-3 rounded-xl font-bold transition-all flex items-center gap-2 group shadow-lg shadow-cyan-500/20"
-              }
-              onClick={() => {
-                window.location.href = "https://wa.link/urfdhq";
-              }}
-              children={"Se parte de la innovación"}
-              icon={faUserPlus}
-            ></Button>
-            <Button
-              classNameBtn={
-                "bg-indigo-800 hover:bg-indigo-700 text-slate-200 px-8 py-3 rounded-xl font-bold border border-indigo-700 transition-all flex items-center gap-2 z-50 relative"
-              }
-              children={"Ver planes"}
-              icon={faCoins}
-              type={"button"}
-              onClick={() => {
-                window.location.href = "#planes";
-              }}
-            ></Button>
+            <a
+              href={WA_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2 rounded-xl bg-cyan-600 px-8 py-3 font-bold text-white shadow-lg shadow-cyan-500/20 transition-all hover:bg-cyan-500"
+            >
+              <Icon icon={faUserPlus} className="text-xl" />
+              Registra tu institución
+            </a>
+            <Link
+              href="#planes"
+              className="relative z-50 flex items-center gap-2 rounded-xl border border-indigo-700 bg-indigo-800 px-8 py-3 font-bold text-slate-200 transition-all hover:bg-indigo-700"
+            >
+              <Icon icon={faCoins} className="text-xl" />
+              Ver planes
+            </Link>
           </div>
         </div>
 
-        {/* Lado Derecho: Tarjetas de Estado (Organismo de previsualización) */}
-        <div className="grid w-full flex-1 grid-cols-2 gap-4">
+        <div className="grid w-full flex-1 grid-cols-1 gap-4 md:grid-cols-1 lg:grid-cols-2">
           <CardState
             icon={faUser}
             info={"5,240"}
-            titel={"Usuarios Activos"}
+            title={"Usuarios Activos"}
           ></CardState>
 
           <CardState
-            titel={"Instituciones Registradas"}
+            title={"Instituciones Registradas"}
             info={"10"}
             icon={faStore}
           ></CardState>
