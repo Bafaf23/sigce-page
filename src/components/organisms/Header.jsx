@@ -25,7 +25,7 @@ export default function Header() {
             <NavLink icon={faRocket} label="Planes" href="#planes" />
           </nav>
           <Link
-            href="/login"
+            href="https://sigace.vercel.app/"
             className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-cyan-600 px-4 py-3 text-xl font-bold text-white transition-all hover:bg-cyan-500 md:flex lg:flex"
           >
             <Icon icon={faRightToBracket} />
